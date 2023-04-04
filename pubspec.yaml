@@ -33,12 +33,14 @@ dependencies:
   cached_network_image: ^3.2.3
   cloud_firestore: ^4.4.5
   cupertino_icons: ^1.0.2
+  emoji_picker_flutter: ^1.5.2
   firebase_auth: ^4.3.0
   firebase_core: ^2.8.0
   firebase_storage: ^11.0.16
   flutter:
     sdk: flutter
   flutter_contacts: ^1.1.6
+  flutter_keyboard_visibility: ^5.4.0
   flutter_riverpod: ^2.3.2
   flutter_screenutil: ^5.7.0
   image_picker: ^0.8.7+1

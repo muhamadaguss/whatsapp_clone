@@ -43,11 +43,8 @@ class _ChatListState extends ConsumerState<ChatList> {
             return const SizedBox();
           }
           SchedulerBinding.instance.addPostFrameCallback((_) {
-            _scrollController.animateTo(
-              _scrollController.position.maxScrollExtent,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeOut,
-            );
+            _scrollController
+                .jumpTo(_scrollController.position.maxScrollExtent);
           });
           return ListView.builder(
             controller: _scrollController,

@@ -28,3 +28,39 @@ Future<File?> pickImageFromGallery(BuildContext context) async {
   }
   return image;
 }
+
+Future<File?> pickVideoFromGallery(BuildContext context) async {
+  File? video;
+  try {
+    final pickedVideo = await ImagePicker().pickVideo(
+      source: ImageSource.gallery,
+    );
+    if (pickedVideo != null) {
+      video = File(pickedVideo.path);
+    }
+  } catch (e) {
+    showSnackbar(
+      context: context,
+      content: e.toString(),
+    );
+  }
+  return video;
+}
+
+Future<File?> pickImageFromCamera(BuildContext context) async {
+  File? image;
+  try {
+    final pickedImage = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+    );
+    if (pickedImage != null) {
+      image = File(pickedImage.path);
+    }
+  } catch (e) {
+    showSnackbar(
+      context: context,
+      content: e.toString(),
+    );
+  }
+  return image;
+}

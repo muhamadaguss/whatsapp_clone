@@ -1,4 +1,5 @@
 import 'package:after_layout/after_layout.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +9,8 @@ import 'package:whatsapp_cl/features/contacts/controller/contacts_controller.dar
 import '../../../colors.dart';
 
 class ContactsScreen extends ConsumerStatefulWidget {
+  const ContactsScreen({super.key});
+
   @override
   ConsumerState<ContactsScreen> createState() => _ContactsScreenState();
 }
@@ -45,7 +48,9 @@ class _ContactsScreenState extends ConsumerState<ContactsScreen>
 
     // Listen to DB changes
     FlutterContacts.addListener(() async {
-      print('Contacts DB changed, refecthing contacts');
+      if (kDebugMode) {
+        print('Contacts DB changed, refecthing contacts');
+      }
       await _refetchContacts();
     });
   }

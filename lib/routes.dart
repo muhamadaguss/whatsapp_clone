@@ -40,7 +40,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case '/contacts':
       return MaterialPageRoute(
-        builder: (context) => ContactsScreen(),
+        builder: (context) => const ContactsScreen(),
       );
     case '/chat':
       var arguments = settings.arguments as Map<String, dynamic>;

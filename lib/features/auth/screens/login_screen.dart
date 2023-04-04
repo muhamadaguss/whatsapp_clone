@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -59,12 +60,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   ),
                 ),
                 onChanged: (phone) {
-                  print(phone.completeNumber);
+                  if (kDebugMode) {
+                    print(phone.completeNumber);
+                  }
                   phoneNumber = phone.completeNumber;
                   countryCode = phone.countryCode;
                 },
                 onCountryChanged: (country) {
-                  print('Country changed to: ' + country.name);
+                  if (kDebugMode) {
+                    print('Country changed to: ${country.name}');
+                  }
                 },
                 initialCountryCode: 'ID',
                 pickerDialogStyle: PickerDialogStyle(

@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -193,7 +195,6 @@ class ChatRepository {
       List<ChatContactModel> chatContacts = [];
       for (var document in event.docs) {
         var contact = ChatContactModel.fromMap(document.data());
-        print(contact);
         var userData =
             await firestore.collection('users').doc(contact.contactId).get();
 
@@ -248,7 +249,6 @@ class ChatRepository {
                 fileName: p.basename(file.path),
                 image: file,
               );
-      print(fileUrl);
       UserModel receiverUserData;
       var userDataMap =
           await firestore.collection('users').doc(receiverUserId).get();
